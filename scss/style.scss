@@ -21,13 +21,13 @@ $ro-layout: (
   gutter: 30px,
 );
 
-// color
 $color-brand: #3F5672;
 $light-blue: #a3b1bf;
 $color-secondary: #16B18A;
 
 $lato: '"Lato", sans-serif';
 
+// common
 html { color: $color-brand; }
 .container { @include container(); }
 .heading1 { @include type(78px uppercase $lato); }
@@ -75,6 +75,7 @@ address { font-style: normal; }
   }
   .active { background-color: $color-secondary; }
 }
+
 // site header
 .topbar {
   font-size: 12px;
@@ -125,6 +126,7 @@ address { font-style: normal; }
 
 // hero
 .hero {
+  @include center();
   padding: 10% 0;
   background: $color-brand url('../images/hero.png') 50% 50% no-repeat;
   background-size: cover;
@@ -132,12 +134,9 @@ address { font-style: normal; }
     padding: 0;
     min-height: 45.83vw;
   }
-  h2 {
-    color: #fff;
-  }
-  p {
-    color: $light-blue;
-  }
+  h2 { color: #fff; }
+  p { color: $light-blue; }
+  &-content { max-width: 960px; }
 }
 
 // features
