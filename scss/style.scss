@@ -30,6 +30,7 @@ $lato: '"Lato", sans-serif';
 // common
 html { color: $color-brand; }
 .container { @include container(); }
+.inner-container { @include container(50em); }
 .heading1 { @include type(78px uppercase $lato); }
 .heading2 { @include type(44px $lato); }
 .sub-heading { @include type(22px 1.55); }
@@ -141,7 +142,6 @@ address { font-style: normal; }
 
 // features
 .features {
-  background-color: #EFF3F5;
   [class*="icon-"] {
     font-size: 4em;
     color: $color-secondary;
@@ -153,6 +153,7 @@ address { font-style: normal; }
 
 // latest-works
 .latest-works {
+  background-color: #EFF3F5;
 }
 
 // site footer
