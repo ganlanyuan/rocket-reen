@@ -20,14 +20,12 @@ $ro-layout: (
   container: 1170px,
   gutter: 30px,
 );
-
 $color-brand: #3F5672;
 $light-blue: #a3b1bf;
 $color-secondary: #16B18A;
-
 $lato: '"Lato", sans-serif';
 
-// common
+// common styles
 html { color: $color-brand; }
 .container { @include container(); }
 .inner-container { @include container(50em); }
@@ -38,6 +36,7 @@ p {
   margin: 1.4em 0;
   line-height: 1.55; 
 }
+address { font-style: normal; }
 .btn {
   @include type(15px uppercase '"Source Sans Pro", sans-serif');
   display: inline-block;
@@ -62,7 +61,6 @@ p {
     padding: 0 0.6em;
   }
 }
-address { font-style: normal; }
 .dots {
   margin: 3% 0;
   span {
@@ -75,6 +73,23 @@ address { font-style: normal; }
     cursor: pointer;
   }
   .active { background-color: $color-secondary; }
+}
+.card {
+  display: block;
+  margin: -1px;
+  border: 1px solid #E0E4E9;
+  background-color: #fff;
+}
+
+$gallery-gutter: 2.56%; // (30px / 1170px)
+.gallery {
+  &2 { @include gallery(2 gutter $gallery-gutter); }
+  &3 { @include gallery(3 gutter $gallery-gutter); }
+  &4 { @include gallery(4 gutter $gallery-gutter); }
+}
+[class*="gallery"] img { 
+  display: block; 
+  width: 100%;
 }
 
 // site header
@@ -104,6 +119,7 @@ address { font-style: normal; }
     float: left;
     margin-right: 7%;
   }
+  &-footer img { width: auto; }
 }
 .main-nav {
   float: left;
@@ -145,15 +161,22 @@ address { font-style: normal; }
   [class*="icon-"] {
     font-size: 4em;
     color: $color-secondary;
+    @include media-list('media' 20px);
   }
   .media-body {
     text-align: left;
+    @include media-list('media-body');
   }
 }
 
 // latest-works
 .latest-works {
   background-color: #EFF3F5;
+  h3 {
+    @include type(20px $lato);
+    margin-top: 4%;
+  }
+  p { margin-top: 0.8em; }
 }
 
 // site footer
@@ -172,6 +195,8 @@ address { font-style: normal; }
       display: inline-block;
       padding: 5px;
       background-color: #3D4958;
+      border-radius: 3px;
+      overflow: hidden;
     }
     input {
       border: 0;
